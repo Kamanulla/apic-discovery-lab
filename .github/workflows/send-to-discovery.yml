@@ -24,15 +24,15 @@ jobs:
     - uses: ibm-apiconnect/apic-discovery-action@main 
       id: discover-apis
       with:
-        api_host: ${{ env.API_HOST }}
-        platform_api_prefix: ${{ env.PLATFORM_API_PREFIX }}
-        provider_org: ${{ env.PROVIDER_ORG }}
-        api_key: ${{ secrets.apicApikey_participant_0 }}
-        api_files: ${{ env.API_FILES }}
-        api_folders: ${{ env.API_FOLDERS }}
+        api_host: tj-isa-5-420eb34f056ae68f3969289d61f61851-0000.jp-tok.containers.appdomain.cloud
+        platform_api_prefix: api-manage-27fb4ea0-api-manager-tech-jam-apic
+        provider_org: tech-jam-18
+        api_key: 2fe45d7b-7172-49f0-bc64-80920bef241a
+        api_files: APIfolder/photos.yaml
+        api_folders: APIfolder,APIfolderTwo
         resync_check: ${{ true }}
         git_diff: ${{ steps.difference-output.outputs.action_updates }}
-        insecure_skip_tls_verify: ${{ env.INSECURE_SKIP_TLS_VERIFY }}
+        insecure_skip_tls_verify: true
     - name: Display the action-result
       run: |
         echo "Result of the action: ${{ steps.discover-apis.outputs.action-result }}"
